@@ -1,4 +1,8 @@
 class AccountsController < ApplicationController
+<<<<<<< Updated upstream
+=======
+  before_action :set_account, only: [:show, :edit, :update, :destroy, :create, :new]
+>>>>>>> Stashed changes
 
 	def index
 		@accounts = Account.all
@@ -16,13 +20,26 @@ class AccountsController < ApplicationController
 	end
 
 	def new
+<<<<<<< Updated upstream
+=======
+		@account = Account.new
+>>>>>>> Stashed changes
 	end
 
   
   def show
+<<<<<<< Updated upstream
 		@transactions = @account.sorted_approved_transactions
   end
   
+=======
+		@account = Account
+  end
+  
+  def edit
+    @account = Account.find params[:id]
+  end
+>>>>>>> Stashed changes
 
   def destroy
     if @account.present?
@@ -43,6 +60,13 @@ class AccountsController < ApplicationController
 
 private 
 	
+<<<<<<< Updated upstream
+=======
+  def set_account
+    @account = Account.find(params[:id])
+  end
+  
+>>>>>>> Stashed changes
 	def account_params
 		params.require(:account).permit(:name, :balance, :account_group_id, :number, :sort_code, :posting_date)
 	end

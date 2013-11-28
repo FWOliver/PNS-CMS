@@ -1,1 +1,40 @@
+<<<<<<< Updated upstream
 puts XXX
+=======
+<%= form_for @account, :html => {:multipart => true} do |f| %>
+  <% if @account.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@account.errors.count, "error") %> prohibited this account from being saved:</h2>
+
+      <ul>
+      <% @account.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :sort_code %><br>
+    <%= f.text_field :sort_code %>
+  </div>
+  <div class="field">
+    <%= f.label :number %><br>
+    <%= f.text_field :number %>
+  </div>
+  <div class="field">
+    <%= f.label :balance %><br>
+    <%= f.text_field :balance %>
+  </div>
+</br>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+>>>>>>> Stashed changes
