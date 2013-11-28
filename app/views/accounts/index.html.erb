@@ -9,6 +9,7 @@
       <th class='span2'>Account Group</th>
       <th class='span2'>Account Number</th>
       <th class='span2'>Account Sort Code</th>
+<<<<<<< Updated upstream
 	  </tr>
 	 </thead>
 	 <tbody>
@@ -21,3 +22,29 @@
 	     </tr>
 	 </tbody>
 	</table>
+=======
+      <th class='span2'>Show</th>
+      <th class='span2'>Edit</th>
+      <th class='span2'>Destroy</th>
+	  </tr>
+	 </thead>
+	 <tbody>
+    <% @accounts.each do |account| %>
+     <tr>
+       <td><%= account.name %></td>
+       <td><%= account.balance %></td>
+       <td><%= account.account_group_id %></td>
+       <td><%= account.number %></td>
+       <td><%= account.sort_code %></td>
+       <td><%= link_to 'Show', account %></td>
+       <td><%= link_to 'Edit', edit_account_path(account) %></td>
+       <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+     </tr>
+		 <% end %>
+	 </tbody>
+	</table></br>
+
+	<br></br></br>
+
+	<%= link_to 'New Account', new_account_path %>
+>>>>>>> Stashed changes
