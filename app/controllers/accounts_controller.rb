@@ -23,7 +23,7 @@ class AccountsController < ApplicationController
 
   
   def show
-		@account = Account
+
   end
   
   def edit
@@ -31,11 +31,12 @@ class AccountsController < ApplicationController
   end
 
   def destroy
-    if @account.present?
-       @account.destroy
-       redirect_to accounts_path, notice: 'Account was successfully deleted.'
-     end
-   end
+    @account.destroy
+    respond_to do |format|
+      format.html { redirect_to accounts_url }
+      format.json { head :no_content }
+    end
+  end
 
    def update
      respond_to do |format|
@@ -51,6 +52,8 @@ private
 
   def set_account
     @account = Account.find(params[:id])
+    #uncomment below when creating accounts
+    #@account = Account
   end
 
 	def account_params
